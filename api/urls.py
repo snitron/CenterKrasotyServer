@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+#пути для API
 urlpatterns = [
     path('', views.index, name='index'),
     path('registerNewUser/', views.registrate, name='registrate'),
