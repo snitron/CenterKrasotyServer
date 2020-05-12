@@ -1,7 +1,9 @@
+#Модели данных для БД
+
 from django.db import models
 from django.contrib.auth.models import User
 
-
+#модель клиента
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # login = models.CharField(max_length=20)
@@ -12,7 +14,7 @@ class Client(models.Model):
     def __str__(self):
         return self.user.username
 
-
+#модель для сохранения смс-кода, отправленного пользователю
 class SmsCode(models.Model):
     code = models.IntegerField()
     phone = models.CharField(max_length=20, default="0")
