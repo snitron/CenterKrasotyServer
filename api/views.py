@@ -1,3 +1,7 @@
+#Методы для API Центра красоты
+#Общение идёт по POST-запросам
+#Авторизация через токены
+
 from uuid import uuid4
 from .models import Client, User, SmsCode
 import sys
@@ -12,7 +16,7 @@ sys.path.append("../")
 def index(request):
     return HttpResponse("aaaa")
 
-
+#регистрация нового пользователя через API
 def registrate(auth_request):
     if auth_request.method == "GET":
         return HttpResponse("No GET requests!")
@@ -46,7 +50,7 @@ def registrate(auth_request):
     tmp = {"phone": phone, "token": token, "code": code}
     return HttpResponse(json.dumps(tmp))
 
-
+#процесс авторизации пользователя
 def login_user(auth_request):
     if auth_request.method == "GET":
         return HttpResponse("No GET requests!")
@@ -69,7 +73,7 @@ def login_user(auth_request):
     tmp = {"phone": phone, "token": token, "code": code}
     return HttpResponse(json.dumps(tmp))
 
-
+#проверка смс-кода, пришедшего на телефон (пока код статичен, позже здесь будет работа с СМС-сервисом)
 def sms_request(sms_req):
     if sms_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -91,7 +95,7 @@ def sms_request(sms_req):
     tmp = {"phone": phone, "code": code}
     return HttpResponse(json.dumps(tmp))
 
-
+#собственно, функция "отправки" СМС с кодом
 def send_sms(req):
     data = req.POST
     phone = data.get("phone")
@@ -110,7 +114,7 @@ def autorize(token):
         usr = i
     return bool(usr)
 
-
+#создание заказа
 def make_order(order_req):
     if order_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -135,7 +139,7 @@ def make_order(order_req):
         code = 0
     return HttpResponse(json.dumps({"code": code}))
 
-
+#выборка всех салонов
 def get_offices(office_req):
     if office_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -161,7 +165,7 @@ def get_offices(office_req):
         code = 0
     return HttpResponse(json.dumps({"offices": offices, "code": code}))
 
-
+#выборка всех услуг конкретного салона
 def get_services(service_req):
     if service_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -187,7 +191,7 @@ def get_services(service_req):
         code = 0
     return HttpResponse(json.dumps({"services": services, "code": code}))
 
-
+#выборка всех посадочных мест в конкретом салоне для конкреной услоги
 def get_places(place_req):
     if place_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -208,7 +212,7 @@ def get_places(place_req):
         code = 0
     return HttpResponse(json.dumps({"places": places, "code": code}))
 
-
+#забор всех заказов пользователя
 def get_orders(order_req):
     if order_req.method == "GET":
         return HttpResponse("No GET requests!")
@@ -245,7 +249,7 @@ def get_orders(order_req):
         code = 0
     return HttpResponse(json.dumps({"orders": orders, "code": code, "count": count}))
 
-
+#получение информации по пользователю
 def get_user(request):
     if request.method == "GET":
         return HttpResponse("No GET requests!")
@@ -269,7 +273,7 @@ def get_user(request):
     resp["code"] = code
     return HttpResponse(json.dumps(resp))
 
-
+#удалеине заказа
 def delete_order(request):
     if request.method == "GET":
         return HttpResponse("No GET requests!")
