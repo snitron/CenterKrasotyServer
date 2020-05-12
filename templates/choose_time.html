@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Time</title>
+</head>
+<body>
+{% block content %}
+    {% for time in times %}
+        <div class="time">{% include "time.html" %}</div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

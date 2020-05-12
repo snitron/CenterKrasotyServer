@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="84.201.133.105" id="3471987b-658a-4dde-835f-3e91328ca5f4" keyPath="D:\DTBR\Putty\pkey.ppk" port="22" customName="centerkrasoty" nameFormat="CUSTOM" />
+      <sshConfig host="84.201.133.105" id="fb90aebd-df7a-4df7-8a3b-3dcde90d60d8" keyPath="D:\DTBR\Putty\pkey.ppk" port="22" customName="centerkrasoty" nameFormat="CUSTOM" />
+    </configs>
+  </component>
+</project>

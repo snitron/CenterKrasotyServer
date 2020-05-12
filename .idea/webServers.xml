@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="58625971-3d64-472d-be1c-8c5a738a9dde" name="centerkrasoty" url="http://84.201.133.105">
+        <fileTransfer host="84.201.133.105" port="22" privateKey="D:\DTBR\Putty\pkey.ppk" rootFolder="/usr/share/django-projects/welcome" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
