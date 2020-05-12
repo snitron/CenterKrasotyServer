@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#модель для отделения салона
 class Office(models.Model):
     name = models.CharField(max_length=30)
     info = models.TextField()
@@ -13,14 +13,14 @@ class Office(models.Model):
     def __str__(self):
         return self.name
 
-
+#модель для типа услуги
 class ServiceGroup(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
 
-
+#модель для услуги
 class Service(models.Model):
     group = models.ForeignKey(ServiceGroup, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=30)
@@ -32,7 +32,7 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
-
+#модель для места (для конкретной услуги)
 class Place(models.Model):
     info = models.TextField()
     group = models.ForeignKey(ServiceGroup, on_delete=models.CASCADE, default=1)
@@ -41,7 +41,7 @@ class Place(models.Model):
     def __str__(self):
         return str(self.id)
 
-
+#модель для заказа
 class Order(models.Model):
     phone = models.CharField(max_length=20, default="0")
     date = models.CharField(max_length=15)
